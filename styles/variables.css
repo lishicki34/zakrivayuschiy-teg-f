@@ -5,8 +5,8 @@
   --color-span: #fff;
   --main-color-heart: red;
   --color-trsp: transparent;
-  --accent-font: 'PressStart2P', serif;
-  --main-font: 'Inter-Variable', serif;
+  --accent-font: 'PressStart2P', fantasy;
+  --main-font: 'Inter-Variable', sans-serif;
   --title-font-weight: 700;
   --text-font-weight: 400;
   --bg-img:   repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),

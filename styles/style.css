@@ -29,8 +29,8 @@
   align-items: end;
   justify-items: center;
   inline-size: 100%;
-  block-size: 364px;
-  margin-block-end: 104px;
+  block-size: 100%;
+  margin-block-end: 100px;
   font-family: var(--accent-font);
   color: var(--accent-color);
   background-color: var(--bg-color);
@@ -43,7 +43,7 @@
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
-  margin-block-start: 136px;
+  margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
 }
 
 .header_subtitle {
@@ -54,11 +54,12 @@
 
 .theme-menu {
   align-self: start;
+  margin-inline-start: 20px;
 }
 
 .theme-menu__list {
   display: grid;
-  row-gap: 14px;
+  row-gap: 10px;
 }
 
 .theme-menu__button {
@@ -102,44 +103,12 @@
   animation: color_point 0.3s ease forwards;
 }
 
-@keyframes color_point {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0.6;
-  }
-}
-
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
   left: -15px;
   color: var(--accent-color);
   animation: point 2s ease-in-out infinite reverse;
-}
-
-@keyframes point {
-  from {
-    transform: translateX(0);
-  }
-
-  25% {
-    transform: translateX(4px);
-  }
-
-  50% {
-    transform: translateX(0px);
-  }
-
-  75% {
-    transform: translateX(4px);
-  }
-
-  to {
-    transform: translateX(0px);
-  }
 }
 
 .card {
@@ -154,7 +123,7 @@
   border-block-end: none;
   color: var(--accent-color);
   font-family: var(--main-font);
-  font-size: 23px;
+  font-size: 18px;
   font-style: normal;
   font-variation-settings: "wght" var(--title-font-weight);
   line-height: normal;
@@ -198,30 +167,27 @@
   filter: brightness(120%);
 }
 
+.label {
+  position: absolute;
+  top: 59px;
+  right: 21px;
+  color: var(--accent-color);
+  font-family: var(--accent-font), fantasy;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+}
+
 @supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
   .label {
     -webkit-text-stroke: 1px #fff;
     text-stroke: 1px #fff;
     text-shadow: none;
   }
-}
-
-.label {
-  position: absolute;
-  top: 83px;
-  right: 11px;
-  color: var(--accent-color);
-  font-family: "PressStart2P", serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: uppercase;
-  text-shadow: -1px 0 #fff, 0 1px #fff 1px 0 #fff, 0 -1px #fff;
-  -webkit-text-stroke: 1px #fff;
-  text-stroke: 1px #fff;
-  mix-blend-mode: hard-light;
-  opacity: 0.5;
 }
 
 .text_block {
@@ -245,7 +211,6 @@
 }
 
 .button__block {
-  gap: 7px;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -259,113 +224,6 @@
 
 .sparks {
   opacity: 0;
-}
-
-/* Hover */
-
-.card__icon-button .core {
-  fill: var(--color-trsp);
-  transition: fill 0.3s 0.03s linear;
-}
-
-.card__icon-button:hover .core {
-  fill: var(--accent-color);
-  transition: fill 0.3s linear;
-}
-
-.card__icon-button .main-body {
-  fill: var(--color-trsp);
-  transition: fill 0.3s linear;
-}
-
-.card__icon-button:hover .main-body {
-  fill: var(--accent-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-/* Active */
-
-.card__icon-button .core {
-  fill: var(--color-trsp);
-  transition: fill 0.3s 0.03s linear;
-}
-
-.card__icon-button:active .core {
-  fill: var(--main-color-heart);
-  transition: fill 0.3s linear;
-}
-
-.card__icon-button .main-body {
-  fill: var(--color-trsp);
-  transition: fill 0.3s linear;
-}
-
-.card__icon-button:active .main-body {
-  fill: var(--main-color-heart);
-  transition: fill 0.3s 0.05s linear;
-}
-
-/* Click */
-
-.like-icon.is-liked .contour {
-  fill: var(--main-color-heart);
-}
-
-.like-icon.is-liked .core {
-  fill: var(--main-color-heart);
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--main-color-heart);
-}
-
-.like-icon.is-liked:active .core {
-  fill: var(--main-color-heart);
-  transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked:active .main-body {
-  fill: var(--main-color-heart);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon .contour {
-  fill: var(--accent-color);
-  transition: fill 0.1s linear;
-}
-
-.like-icon.is-liked:active .contour {
-  fill: var(--main-color-heart);
-  transition: fill 0.3s 0.06s linear;
-}
-
-.like-icon.is-liked .heart {
-  transform-origin: center;
-  animation: beat 0.3s 0.01s ease-in alternate;
-}
-
-@keyframes beat {
-  from {
-    transform: scale(1);
-  }
-
-  from {
-    transform: scale(1.5);
-  }
-}
-
-.like-icon.is-liked .sparks {
-  animation: drops 0.3s 0.3s ease-in alternate;
-}
-
-@keyframes drops {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
 }
 
 .card__icon-button:focus {
@@ -411,6 +269,9 @@
 
 .card__like-button:focus {
   outline: none;
+}
+
+.card__like-button:focus-visible {
   transition: 0.3s ease;
   box-shadow: 2px 2px var(--accent-color);
 }
@@ -472,6 +333,9 @@
 
 .button__footer:focus {
   outline: none;
+}
+
+.button__footer:focus-visible {
   transition: 0.3s ease;
   box-shadow: 2px 2px var(--accent-color);
 }
@@ -530,6 +394,10 @@
   border: 2px solid var(--accent-color);
 }
 
+.dialog:focus {
+  outline: none;
+}
+
 .dialog::backdrop {
   background-color: rgb(0 0 0 / 0.3);
   backdrop-filter: blur(7px);
@@ -541,10 +409,15 @@
   block-size: 39px;
 }
 
-.card__like-button_dialog {
+.button__form {
+  inline-size: 100%;
   grid-column: 1/4;
   justify-self: center;
   align-self: center;
+}
+
+.card__like-button_dialog {
+  position: relative;
   border: 2px solid var(--accent-color);
   background-color: transparent;
   padding: 9px 17px;
@@ -559,6 +432,43 @@
   line-height: 90%; /* 12.6px */
 }
 
+.card__like-button_dialog:focus {
+  outline: none;
+}
+
+.card__like-button_dialog:focus-visible {
+  transition: 0.3s ease;
+  box-shadow: 2px 2px var(--accent-color);
+}
+
+.card__like-button_dialog::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left;
+}
+
+.card__like-button_dialog:hover::before {
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.button__text-dialog {
+  position: relative;
+  z-index: 1;
+  margin-block-start: 3px;
+  color: var(--color-span);
+  mix-blend-mode: difference;
+  transition: color 0.5s ease-in-out;
+}
+
 .text-dialog {
   grid-column: 2/4;
   color: var(--accent-color);
@@ -571,12 +481,35 @@
 }
 
 @media (width <= 375px) {
+  .header {
+    align-items: baseline;
+    block-size: 87vw;
+  }
+
+  .header_subtitle {
+    display: grid;
+    align-items: start;
+    margin-block-end: 0px;
+  }
+
+  .theme-menu {
+    margin-block-end: 30px;
+  }
+
+  .label {
+    top: 79px;
+  }
+
   .button__footer {
     flex-direction: column;
     justify-content: center;
     inline-size: 306px;
     block-size: 80px;
     row-gap: 8px;
+  }
+
+  .theme-menu__list {
+    gap: 10px;
   }
 
   .floppy {
