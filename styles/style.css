@@ -20,6 +20,7 @@
   min-block-size: 100dvb;
   background-image: var(--bg-img);
   background-size: cover;
+  background-attachment: fixed; 
 }
 
 .header {
@@ -30,7 +31,7 @@
   justify-items: center;
   inline-size: 100%;
   block-size: 100%;
-  margin-block-end: 100px;
+  margin-block-end: 97px;
   font-family: var(--accent-font);
   color: var(--accent-color);
   background-color: var(--bg-color);
@@ -113,7 +114,11 @@
 
 .card {
   position: relative;
-  margin-block-end: 54px;
+  margin-block-end: 48px;
+}
+
+.first_card .img_block {
+  position: relative;
 }
 
 .card_title {
@@ -167,10 +172,14 @@
   filter: brightness(120%);
 }
 
+.img_block {
+position: relative;
+}
+
 .label {
   position: absolute;
-  top: 59px;
-  right: 21px;
+  top: 25px;
+  right: 25px;
   color: var(--accent-color);
   font-family: var(--accent-font), fantasy;
   font-size: 14px;
@@ -180,12 +189,13 @@
   text-transform: uppercase;
   mix-blend-mode: hard-light;
   opacity: 0.5;
+  text-shadow: 1px 1px var(--bg-color);
 }
 
-@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+@supports ((text-stroke: 1px var(--bg-color)) or (-webkit-text-stroke: 1px var(--bg-color))) {
   .label {
-    -webkit-text-stroke: 1px #fff;
-    text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--bg-color);
+    text-stroke: 1px var(--bg-color);
     text-shadow: none;
   }
 }
@@ -206,7 +216,7 @@
 }
 
 .card_text-emotions {
-  margin-block-start: 27px;
+  margin-block-start: 28px;
   margin-block-end: 25px;
 }
 
@@ -321,7 +331,7 @@
   inline-size: 335px;
   block-size: 51px;
   padding: 0;
-  margin: 54px auto 0px;
+  margin: 49px auto 0px;
   cursor: pointer;
   color: var(--accent-color);
   font-family: var(--accent-font);
@@ -379,7 +389,7 @@
   opacity: 0;
 }
 
-.dialog {
+.dialog[open] {
   display: grid;
   position: fixed;
   inset: 0;
@@ -497,7 +507,11 @@
   }
 
   .label {
-    top: 79px;
+    right: 11px;
+  }
+
+  .card_text-emotions {
+    margin-block-start: 25px;
   }
 
   .button__footer {
